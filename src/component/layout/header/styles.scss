@@ -1,0 +1,14 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 1px solid var(--gray);
+    background-color: var(--secondary);
+    color: #fff;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 130%;
+    }
+}

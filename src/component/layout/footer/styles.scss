@@ -1,0 +1,21 @@
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid var(--gray);
+    background-color: var(--secondary);
+    color: #fff;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 130%;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 130%;
+    }
+}

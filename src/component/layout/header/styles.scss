@@ -2,9 +2,11 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     border-bottom: 1px solid var(--gray);
     background-color: var(--secondary);
     color: #fff;
+    height: 60px;
 
     h1 {
         font-size: 2rem;

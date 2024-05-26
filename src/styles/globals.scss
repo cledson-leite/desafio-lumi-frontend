@@ -5,7 +5,12 @@ body {
 	margin: 0;
 	background-color: var(--primary);
 	color: var(--background);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100vh;
 }
+
 * {
 	box-sizing: border-box;
 }

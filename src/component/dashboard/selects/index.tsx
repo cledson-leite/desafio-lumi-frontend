@@ -1,9 +1,9 @@
 import { MainSelect } from '../main-select'
-import './styles.scss'
+import style from './selects.module.scss'
 
 export const Selects = () => {
     return (
-        <section className='select-container '>
+        <section className={style.container}>
             <MainSelect helper='Selecione o cliente'/>
             <MainSelect helper='Selecione o ano' />
         </section>

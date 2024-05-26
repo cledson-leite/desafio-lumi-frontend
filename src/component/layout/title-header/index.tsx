@@ -1,9 +1,9 @@
 import Link from "next/link"
-import './styles.scss'
+import style from './title-header.module.scss'
 
 export const TitleHeader = () => {
     return (
-        <Link href={'/'} className="title" >
+        <Link href={'/'} className={style.title} >
             <h1>Dashboard</h1>
         </Link>
     )

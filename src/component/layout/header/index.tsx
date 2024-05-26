@@ -1,11 +1,11 @@
 import { TitleHeader } from "../title-header"
 import { LayoutButton } from '../layout-button';
 
-import './styles.scss'
+import style from './header.module.scss'
 
 export const Header = () => {
     return (
-        <header>
+        <header className={style.container}>
             <TitleHeader />
             <LayoutButton />
         </header>

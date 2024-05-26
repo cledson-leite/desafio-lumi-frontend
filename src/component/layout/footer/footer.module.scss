@@ -1,4 +1,4 @@
-footer {
+.container {
     display: flex;
     flex-direction: row;
     position: fixed;
@@ -12,13 +12,13 @@ footer {
     width: 100%;
 
 
-    h1 {
+    & h1 {
         font-size: 2rem;
         font-weight: bold;
         line-height: 130%;
     }
 
-    h3 {
+    & h3 {
         font-size: 1.5rem;
         font-weight: bold;
         line-height: 130%;

@@ -1,11 +1,10 @@
-import { Footer } from "@/component/layout/footer";
-import { Header } from "@/component/layout/header";
+import { Charts } from "@/component/dashboard/chart/charts"
 
 export default function Home() {
   return (
-    <>
-      
-    </>
+    <main>   
+      <Charts />
+    </main>
     
   );
 }

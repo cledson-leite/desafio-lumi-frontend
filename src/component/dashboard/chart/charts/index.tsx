@@ -4,7 +4,7 @@ import './styles.scss'
 
 export const Charts = () => {
     return (
-        <section>
+        <section className="container">
             <KWHChart />
             <ValueChart />
         </section>

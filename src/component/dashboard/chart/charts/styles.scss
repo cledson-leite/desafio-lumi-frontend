@@ -1,6 +1,7 @@
-section {
+.container {
     display: flex;
     flex-grow: 1;
     justify-content: space-around;
     height: 100%;
+    margin: 0.75rem;
 }

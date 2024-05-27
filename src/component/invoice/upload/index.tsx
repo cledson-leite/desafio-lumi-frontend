@@ -42,7 +42,7 @@ export const Upload = () => {
                     onChange={({target}) => setFile(target.files![0])} 
                     required
                 />
-                <Buttons onClick={handleClick}/>
+                <Buttons onClick={handleClick} pdf={file!}/>
                 
             </div>
             

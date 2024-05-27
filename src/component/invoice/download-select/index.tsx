@@ -7,20 +7,23 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { useState } from 'react';
 
 type SelectProps = {
-  helper: string
+  helper: string,
+  onChange: (value: string) => void,
+  options: string[]
 }
 
-export const DownloadSelect = ({helper}: SelectProps) => {
-  const [age, setAge] = useState('');
+export const DownloadSelect = ({helper, onChange, options}: SelectProps) => {
+  const [value, setValue] = useState('');
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
+    setValue(event.target.value);
+    onChange(event.target.value);
   };
 
   return (
     <FormControl sx={{ m: 1, minWidth: 150 }}>
         <Select
-          value={age}
+          value={value}
           onChange={handleChange}
           displayEmpty
           inputProps={{ 'aria-label': helper}}
@@ -28,9 +31,11 @@ export const DownloadSelect = ({helper}: SelectProps) => {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {
+            options.map((item, idx) => (
+              <MenuItem key={idx} value={item}>{item}</MenuItem>
+            ))
+          }
         </Select>
         <FormHelperText>{helper}</FormHelperText>
       </FormControl>

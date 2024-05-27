@@ -2,13 +2,22 @@
 
 import { useFile } from '@/context/file-context'
 import style from './buttons.module.scss'
+import { usePdf } from '@/context/pdf-context'
 
 type ButtonsProps = {
     onClick: () => void
+    pdf: File
 }
 
-export const Buttons = ({onClick}: ButtonsProps) => {
+export const Buttons = ({onClick, pdf}: ButtonsProps) => {
+    const {upload} = usePdf()
+
     const {file, fileSetting} = useFile()
+
+    const handleClick = () => {
+        upload(pdf)
+        fileSetting('')
+    }
     return (
         <div>
             {
@@ -26,7 +35,7 @@ export const Buttons = ({onClick}: ButtonsProps) => {
                         <button 
                             className={style.success}
                             type='button'
-                            // onClick={handleClick}                
+                            onClick={handleClick}                
                         >
                             enviar
                         </button>

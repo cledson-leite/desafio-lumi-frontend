@@ -1,6 +1,7 @@
 'use client'
 
 import { api } from "@/config/api";
+import { error } from "console";
 import { createContext, useCallback, useEffect, useState, ReactNode, useContext } from "react";
 
 type Kwh = {
@@ -55,28 +56,33 @@ export const ListProvider = ({children}: ProviderProps) => {
     const fetch = useCallback(async () => {
         const url = `/invoice/${client}/${year}`
         if(client && year){
-            const response = await api.get(url)
+            try{
+                const response = await api.get(url)
 
-        const kwh: Kwh[] = response.data.map((item: any) => {
-            const consumed = item.quantEletric + item.quantSCEEE
-            const compensated = item.quantPlywood
-            const month = item.monthRef
-            return {month, consumed, compensated}
-        })
+                const kwh: Kwh[] = response.data.map((item: any) => {
+                    const consumed = item.quantEletric + item.quantSCEEE
+                    const compensated = item.quantPlywood
+                    const month = item.monthRef
+                    return {month, consumed, compensated}
+                })
 
-        const values: Value[] = response.data.map((item: any) => {
-            const total = (Number(item.valueEletric) + Number(item.valueSCEEE) + Number(item.valuePublic)).toFixed(2)
-            const saved = item.valuePlywood ? (Number(item.valuePlywood).toFixed(2) as any) * -1 : 0
-            const month = item.monthRef
-            return {
-                month,
-                total,
-                saved
+                const values: Value[] = response.data.map((item: any) => {
+                    const total = (Number(item.valueEletric) + Number(item.valueSCEEE) + Number(item.valuePublic)).toFixed(2)
+                    const saved = item.valuePlywood ? (Number(item.valuePlywood).toFixed(2) as any) * -1 : 0
+                    const month = item.monthRef
+                    return {
+                        month,
+                        total,
+                        saved
+                    }
+                })
+
+                setKwh(kwh)
+                setValues(values)
+
+            }catch (error) {
+                throw error
             }
-        })
-
-        setKwh(kwh)
-        setValues(values)
         }
         
     }, [client, year])

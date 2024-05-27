@@ -55,6 +55,6 @@ yarn dev ou npm rum dev
 
 ```
 necessario criar um .env.local copiando o arquivo .env.example e fornecendo a url base para o backend:
-* https://desafio-lumi-backend.onrender.com - se usar o servidor
+* https://desafio-lumi-backend.up.railway.app/ - se usar o servidor
 
 *http://localhost:3000 - se usar o backend local

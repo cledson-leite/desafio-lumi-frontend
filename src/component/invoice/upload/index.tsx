@@ -16,7 +16,6 @@ export const Upload = () => {
         if(current) current.click()
         }
     useEffect(()=> {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         fr = new FileReader()
         if (!file) {
             fileSetting('')

@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Desafio Lumi Frontend
 
-## Getting Started
+O objetivo será desenvolver um a aplicação web para acessar e vizualizar os dados do backend
 
-First, run the development server:
+## Detalhamento do desafio
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Foi desenvolvido uma aplicação usando nextjs 14, com metodo app router, composto por duas telas:
+
+### Home
+Página para acompanhar as principais variáveis da fatura de energia
+elétrica ao longo do tempo. Sendo:  
+* Consumo e Compensação de energia em kwh
+* Total e Economizada em valores monetarios
+
+Esses dados são mostrados em grafico de barra sequencionado por mês de referencia e podendo ser selecionado o numero do cliente e ano de referencia.
+
+### Faturas
+Página dedicada à disponibilização das faturas ao usuário final, permitindo que o usuário forneça sua conta em pdf para persistir no sistema. Também é permito selecionar um determinado Nº DO CLIENTE, ano de referencia e mês de referencia para realizar o download de sua fatura de energia elétrica para um mês específico.
+
+## Stacks
+
+Para essa desafio foi usado:
+* react 18
+* nextjs 14
+* axios 1.7
+* MUI 5
+* MUI - chart 7
+* typescript 5
+
+### Organização de pastas
+Todo o sistema esta contido na pasta src, exceto as configurações de dependencias e projeto:
+
+* app - contem o layout da alicação assim como as paginas que rodeam o sistema;
+
+* component - contem todos os componentes usado separados posr paginas onde são usados;
+
+* config - contem a configuração do axios;
+
+* context - contem todos os contextos;
+
+* provider - padrão proxy usado para centralizar todos os contexto providos isolando=o do layout;
+
+* styles - contem os estilos globais e variaveis de estilo;
+
+### Produção
+A aplicação esta hospedada em servidor proprio nesta url [Frontend](https://desafio-lumi-frontend-h38i.vercel.app/)
 ```
+## Execução local
+```
+git clone https://github.com/cledson-leite/desafio-lumi-frontend.git
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+cd desafio-lumi-frontend
+yarn ou npm i ou npm install
+yarn dev ou npm rum dev
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+necessario criar um .env.local copiando o arquivo .env.example e fornecendo a url base para o backend:
+* https://desafio-lumi-backend.onrender.com - se usar o servidor
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+*http://localhost:3000 - se usar o backend local

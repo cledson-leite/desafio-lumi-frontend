@@ -42,6 +42,7 @@ export const PdfProvider = ({children}: ProviderProps) => {
         setParams(params)
     }
     const fetchUpload = useCallback(async () => {
+        setOpen(false)
         const config = {
             headers: {
                 'Content-Type': 'multipart/form-data'
